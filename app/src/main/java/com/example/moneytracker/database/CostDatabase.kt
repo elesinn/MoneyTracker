@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Cost::class], version = 1, exportSchema = false)
+@Database(entities = [Cost::class], version = 2, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class CostDatabase : RoomDatabase() {
     abstract fun costDao(): CostDao
     companion object {

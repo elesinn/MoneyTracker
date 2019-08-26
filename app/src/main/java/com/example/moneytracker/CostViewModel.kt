@@ -12,11 +12,12 @@ import kotlinx.coroutines.launch
 class CostViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: CostRepository
     val todayCost: LiveData<Cost>
-
+    val allCost: LiveData<List<Cost>>
     init {
         val costDao = CostDatabase.getInstance(application, viewModelScope).costDao()
         repository = CostRepository(costDao)
         todayCost = repository.todayCost
+        allCost = repository.allCost
     }
 
     fun insert(cost: Cost) = viewModelScope.launch(Dispatchers.IO) {

@@ -17,10 +17,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/addCost"/>
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
+    <CalendarView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/darker_gray"
-            tools:listitem="@layout/recyclerview_item" />
+            android:layout_height="wrap_content" android:id="@+id/calendarView"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:id="@+id/currentCost"/>
+    <!--<androidx.recyclerview.widget.RecyclerView-->
+            <!--android:id="@+id/recyclerview"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@android:color/darker_gray"-->
+            <!--tools:listitem="@layout/recyclerview_item" />-->
 </LinearLayout>

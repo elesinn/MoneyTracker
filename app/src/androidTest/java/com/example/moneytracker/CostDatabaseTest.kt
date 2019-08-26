@@ -45,7 +45,7 @@ class CostDatabaseTest {
             // Allowing main thread queries, just for testing.
             .allowMainThreadQueries()
             .build()
-        costDao = db.costDao
+        costDao = db.costDao()
     }
 
     @After

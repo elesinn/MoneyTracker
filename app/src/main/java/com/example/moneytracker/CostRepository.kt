@@ -8,6 +8,7 @@ import com.example.moneytracker.database.CostDao
 class CostRepository(private val costDao: CostDao) {
 
     val todayCost: LiveData<Cost> = costDao.getToday()
+    val allCost: LiveData<List<Cost>> = costDao.getAllCosts()
 
     @WorkerThread
     suspend fun insert(cost: Cost) {

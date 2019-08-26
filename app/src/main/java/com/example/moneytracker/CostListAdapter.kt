@@ -13,7 +13,8 @@ class CostListAdapter internal constructor(
 ) : RecyclerView.Adapter<CostListAdapter.CostListHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var cost: Cost = Cost(value = 0F)  // Cached copy of words
+    private var todayCost: Cost = Cost(value = 0F)  // Cached copy of words
+    private var allCosts = emptyList<Cost>() // Cached copy of words
 
     inner class CostListHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val costItemView: TextView = itemView.findViewById(R.id.textView)
@@ -25,14 +26,14 @@ class CostListAdapter internal constructor(
     }
 
     override fun onBindViewHolder(holder: CostListHolder, position: Int) {
-        val current = cost
+        val current = allCosts[position]
         holder.costItemView.text = current.value.toString()
     }
 
-    internal fun setCost(cost: Cost) {
-        this.cost = cost
+    internal fun setCost(costs: List<Cost>) {
+        this.allCosts = costs
         notifyDataSetChanged()
     }
 
-    override fun getItemCount() = 1
+    override fun getItemCount() = allCosts.size
 }

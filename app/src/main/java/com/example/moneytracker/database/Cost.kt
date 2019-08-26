@@ -3,6 +3,9 @@ package com.example.moneytracker.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.util.*
 
 @Entity(tableName = "costs")
 data class Cost(
@@ -12,8 +15,8 @@ data class Cost(
     @ColumnInfo(name = "value")
     var value: Float,
 
-    @ColumnInfo(name = "time_milli")
-    var time: Long = System.currentTimeMillis(),
+    @ColumnInfo(name = "date")
+    var time: LocalDateTime = LocalDateTime.now(),
 
     @ColumnInfo(name = "category")
     var category: Long = 0,
