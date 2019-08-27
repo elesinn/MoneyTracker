@@ -26,4 +26,7 @@ interface CostDao {
 
     @Query("SELECT * FROM costs ORDER BY id DESC")
     fun getAllCosts(): LiveData<List<Cost>>
+
+    @Query("SELECT COUNT(*) FROM costs")
+    fun getCount() : Int
 }

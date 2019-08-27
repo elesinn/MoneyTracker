@@ -10,7 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Cost::class], version = 2, exportSchema = false)
+@Database(entities = [Cost::class], version = 5, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class CostDatabase : RoomDatabase() {
     abstract fun costDao(): CostDao
@@ -55,10 +55,11 @@ abstract class CostDatabase : RoomDatabase() {
         }
 
         fun populateDatabase(costDao: CostDao) {
-            costDao.clear()
-
-            var cost = Cost(value = 10F)
-            costDao.insert(cost)
+//            costDao.clear()
+            if (costDao.getCount() == 0) {
+                var cost = Cost(value = 10F)
+                costDao.insert(cost)
+            }
         }
     }
 }

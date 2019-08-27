@@ -1,27 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical" android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <TextView
+            android:id="@+id/dayText"
+            android:layout_width="96dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="36dp"
+            android:text="День"
+            app:layout_constraintEnd_toStartOf="@+id/timeText"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="37dp" />
+
+    <TextView
+            android:id="@+id/dateValue"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="27.09.1992"
+            tools:layout_editor_absoluteX="39dp"
+            tools:layout_editor_absoluteY="187dp" />
+
+    <TextView
+            android:id="@+id/timeText"
+            android:layout_width="132dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="72dp"
+            android:text="Время"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dayText"
+            tools:layout_editor_absoluteY="35dp" />
+
+    <TextView
+            android:id="@+id/timeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14:11"
+            tools:layout_editor_absoluteX="216dp"
+            tools:layout_editor_absoluteY="223dp" />
 
     <EditText
             android:id="@+id/edit_word"
-            android:layout_width="match_parent"
+            android:layout_width="411dp"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
             android:hint="@string/hint_word"
             android:inputType="number"
             android:padding="@dimen/small_padding"
-            android:layout_marginBottom="@dimen/big_padding"
-            android:layout_marginTop="@dimen/big_padding"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="605dp" />
 
     <Button
             android:id="@+id/button_save"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:background="@color/colorPrimary"
             android:text="@string/button_save"
-            android:textColor="@color/buttonLabel" />
+            android:textColor="@color/buttonLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_word" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

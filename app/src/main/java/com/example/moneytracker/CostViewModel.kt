@@ -8,15 +8,14 @@ import com.example.moneytracker.database.Cost
 import com.example.moneytracker.database.CostDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.joda.time.LocalDateTime
 
 class CostViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: CostRepository
-    val todayCost: LiveData<Cost>
     val allCost: LiveData<List<Cost>>
     init {
         val costDao = CostDatabase.getInstance(application, viewModelScope).costDao()
         repository = CostRepository(costDao)
-        todayCost = repository.todayCost
         allCost = repository.allCost
     }
 
