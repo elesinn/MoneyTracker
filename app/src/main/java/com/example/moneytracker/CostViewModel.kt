@@ -8,7 +8,6 @@ import com.example.moneytracker.database.Cost
 import com.example.moneytracker.database.CostDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.joda.time.LocalDateTime
 
 class CostViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: CostRepository

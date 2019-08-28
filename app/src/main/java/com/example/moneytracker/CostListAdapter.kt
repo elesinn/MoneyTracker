@@ -45,7 +45,7 @@ class CostListAdapter internal constructor(
     internal fun findCostsByDay(dayOfMonth: Int, month: Int, year: Int): List<Cost> {
         var costs = mutableListOf<Cost>()
         this.allCosts.forEach {
-            if (it.time.dayOfMonth == dayOfMonth && it.time.monthOfYear == month+1 && it.time.year == year ) {
+            if (it.time.dayOfMonth == dayOfMonth && it.time.monthValue == month+1 && it.time.year == year ) {
                 costs.add(it)
             }
         }

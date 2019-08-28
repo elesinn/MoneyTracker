@@ -13,10 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneytracker.database.Cost
 import kotlinx.android.synthetic.main.activity_main.*
-import org.joda.time.LocalDateTime
 import java.util.*
 import android.R.attr.data
 import android.view.View
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 class MainActivity : AppCompatActivity() {
@@ -77,7 +78,11 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == newCostActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.let {
-                val cost = Cost(value = it.getStringExtra(NewCostActivity.EXTRA_REPLY).toFloat())
+                val value =  it.getStringExtra(NewCostActivity.VALUE_REPLY)
+                var dateText = it.getStringExtra(NewCostActivity.DATE_REPLY)
+                val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
+                val time = LocalDateTime.parse(dateText,formatter)
+                val cost = Cost(value=value.toFloat(),time = time)
                 costViewModel.insert(cost)
             }
         } else {

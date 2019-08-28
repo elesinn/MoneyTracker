@@ -10,7 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Cost::class], version = 5, exportSchema = false)
+@Database(entities = [Cost::class], version = 8, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class CostDatabase : RoomDatabase() {
     abstract fun costDao(): CostDao

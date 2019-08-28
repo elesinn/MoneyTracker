@@ -3,8 +3,11 @@ package com.example.moneytracker.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import kotlinx.serialization.ContextualSerialization
+import kotlinx.serialization.Serializable
 import java.time.LocalDate
-import org.joda.time.LocalDateTime
+import java.time.LocalDateTime
 import java.util.*
 
 @Entity(tableName = "costs")
@@ -16,7 +19,7 @@ data class Cost(
     var value: Float,
 
     @ColumnInfo(name = "date")
-    var time: LocalDateTime = LocalDateTime(),
+    var time: LocalDateTime = LocalDateTime.now(),
 
     @ColumnInfo(name = "category")
     var category: Long = 0,
