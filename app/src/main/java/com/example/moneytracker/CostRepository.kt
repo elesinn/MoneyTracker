@@ -13,4 +13,8 @@ class CostRepository(private val costDao: CostDao) {
     fun insert(cost: Cost) {
         costDao.insert(cost)
     }
+
+    fun getAllWords(): LiveData<List<Cost>> {
+        return allCost
+    }
 }

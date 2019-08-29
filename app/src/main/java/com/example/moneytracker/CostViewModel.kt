@@ -21,4 +21,5 @@ class CostViewModel(application: Application) : AndroidViewModel(application) {
     fun insert(cost: Cost) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(cost)
     }
+
 }

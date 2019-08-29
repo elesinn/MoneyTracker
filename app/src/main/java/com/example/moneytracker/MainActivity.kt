@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         })
 
         //Calendar
-
         calendarView.setDate(calendarView.date)
 
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
@@ -53,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
             adapter.setCostsForDay(dayOfMonth, month, year)
 
-            if (adapter.itemCount == 0) {
+            if (adapter.getCostPerDayCount() == 0) {
                 recyclerView.visibility = View.GONE
                 emptyDay.visibility = View.VISIBLE
             } else {
@@ -70,7 +69,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val newCostActivityRequestCode = 1
-        const val EXTRA_SELECTED_DAY = "com.example.android.main.SELECTED_DAY"
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -13,8 +13,8 @@
             android:layout_width="96dp"
             android:layout_height="30dp"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="32dp"
-            android:text="День"
+            android:layout_marginTop="44dp"
+            android:text="@string/day_text"
             app:layout_constraintEnd_toStartOf="@+id/timeText"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -22,12 +22,13 @@
 
     <TextView
             android:id="@+id/dateValue"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="84dp"
-            android:text="27.09.1992"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/date_default"
+            app:layout_constraintEnd_toEndOf="@+id/dayText"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/dayText"
             app:layout_constraintTop_toBottomOf="@+id/dayText" />
 
     <TextView
@@ -36,26 +37,31 @@
             android:layout_height="29dp"
             android:layout_marginStart="72dp"
             android:layout_marginTop="32dp"
-            android:text="Время"
+            android:text="@string/time_text"
+            app:layout_constraintBottom_toBottomOf="@+id/dayText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/dayText"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
     <TextView
             android:id="@+id/timeValue"
             android:layout_width="80dp"
             android:layout_height="35dp"
-            android:layout_marginStart="176dp"
-            android:text="14:11"
-            app:layout_constraintStart_toEndOf="@+id/dateValue"
-            app:layout_constraintTop_toTopOf="@+id/dateValue" />
+            android:text="@string/time_default"
+            app:layout_constraintBottom_toBottomOf="@+id/dateValue"
+            app:layout_constraintEnd_toEndOf="@+id/timeText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/timeText"
+            app:layout_constraintTop_toTopOf="@+id/dateValue"
+            app:layout_constraintVertical_bias="1.0" />
 
     <EditText
             android:id="@+id/edit_word"
             android:layout_width="411dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="152dp"
+            android:layout_marginTop="72dp"
             android:fontFamily="sans-serif-light"
             android:hint="@string/hint_word"
             android:inputType="number"
@@ -66,14 +72,14 @@
 
     <Button
             android:id="@+id/button_save"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@color/colorPrimary"
+            android:layout_width="288dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="84dp"
+            android:background="#009688"
             android:text="@string/button_save"
             android:textColor="@color/buttonLabel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_word" />
 

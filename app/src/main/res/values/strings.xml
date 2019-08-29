@@ -6,4 +6,8 @@
     <string name="button_save">Сохранить</string>
     <string name="empty_not_saved">Расход не сохранён, потому что он пустой.</string>
     <string name="NO_COST_FOR_DAY">Нет расходов за этот день</string>
+    <string name="time_default">00:00</string>
+    <string name="time_text">Время</string>
+    <string name="date_default">27.09.1992</string>
+    <string name="day_text">День</string>
 </resources>

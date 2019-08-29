@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneytracker.database.Cost
+import java.time.format.DateTimeFormatter
 
 class CostListAdapter internal constructor(
     context: Context
@@ -16,7 +17,8 @@ class CostListAdapter internal constructor(
     private var costsForDay = emptyList<Cost>() // Cached copy of words
 
     inner class CostListHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val costItemView: TextView = itemView.findViewById(R.id.textView)
+        val costValueView: TextView = itemView.findViewById(R.id.cost)
+        val costTimeView: TextView = itemView.findViewById(R.id.time)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CostListHolder {
@@ -26,8 +28,12 @@ class CostListAdapter internal constructor(
     }
 
     override fun onBindViewHolder(holder: CostListHolder, position: Int) {
-        val current = costsForDay[position]
-        holder.costItemView.text = current.value.toString()
+        if (allCosts.size != null && costsForDay.size != null) {
+            val current = costsForDay[position]
+            holder.costValueView.text = current.value.toString()
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+            holder.costTimeView.text = current.time?.format(formatter)
+        }
     }
 
     internal fun setAllCosts(costs: List<Cost>) {
@@ -40,7 +46,7 @@ class CostListAdapter internal constructor(
         notifyDataSetChanged()
     }
 
-    override fun getItemCount() = costsForDay.size
+    override fun getItemCount() = allCosts.size
 
     internal fun findCostsByDay(dayOfMonth: Int, month: Int, year: Int): List<Cost> {
         var costs = mutableListOf<Cost>()
@@ -50,5 +56,9 @@ class CostListAdapter internal constructor(
             }
         }
         return costs
+    }
+
+    fun getCostPerDayCount(): Int{
+        return this.costsForDay.size
     }
 }
